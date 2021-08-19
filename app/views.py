@@ -25,3 +25,13 @@ def Voting(request):
      }
     
      return render(request, 'app/home.html',context)
+
+
+def Sortdata(request):
+     global globalcnt
+     globalcnt = dict(sorted(globalcnt.items(), key=lambda x:x[1], reverse=True))
+     context = {
+          'arr':arr,
+          'globalcnt':globalcnt,
+     }
+     return render(request, 'app/home.html',context)
